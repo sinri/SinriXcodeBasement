@@ -668,3 +668,89 @@
 
 
 @end
+
+
+
+@implementation UIImage (CommonImplement)
+
+- (UIImage *) makeThumbnailOfSize:(CGSize)size;
+{
+    UIGraphicsBeginImageContext(size);
+    // draw scaled image into thumbnail context
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newThumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    // pop the context
+    UIGraphicsEndImageContext();
+    if(newThumbnail == nil)
+        NSLog(@"could not scale image");
+    return newThumbnail;
+}
+
+-(UIImage*)scaledCopyWithNewSize:(CGSize)newSize{
+    // Create a graphics image context
+    UIGraphicsBeginImageContext(newSize);
+    
+    // Tell the old image to draw in this new context, with the desired
+    // new size
+    [self drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    
+    // Get the new image from the context
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // End the context
+    UIGraphicsEndImageContext();
+    
+    // Return the new image.
+    return newImage;
+}
+
+//压缩图片
++ (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    // Create a graphics image context
+    UIGraphicsBeginImageContext(newSize);
+    
+    // Tell the old image to draw in this new context, with the desired
+    // new size
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    
+    // Get the new image from the context
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // End the context
+    UIGraphicsEndImageContext();
+    
+    // Return the new image.
+    return newImage;
+}
+
+@end
+
+@implementation UIImage(InternalMethod)
+
+- (UIImage*)imageRotatedByDegrees:(CGFloat)degrees
+{
+    
+    CGFloat width = CGImageGetWidth(self.CGImage);
+    CGFloat height = CGImageGetHeight(self.CGImage);
+    
+    CGSize rotatedSize;
+    
+    rotatedSize.width = width;
+    rotatedSize.height = height;
+    
+    UIGraphicsBeginImageContext(rotatedSize);
+    CGContextRef bitmap = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
+    CGContextRotateCTM(bitmap, degrees * M_PI / 180);
+    CGContextRotateCTM(bitmap, M_PI);
+    CGContextScaleCTM(bitmap, -1.0, 1.0);
+    CGContextDrawImage(bitmap, CGRectMake(-rotatedSize.width/2, -rotatedSize.height/2, rotatedSize.width, rotatedSize.height), self.CGImage);
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+@end
+
+

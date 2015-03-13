@@ -189,3 +189,15 @@ typedef enum : NSUInteger {
 -(void)stopWait;
 
 @end
+
+@interface UIImage (CommonImplement)
+- (UIImage *) makeThumbnailOfSize:(CGSize)size;
+-(UIImage*)scaledCopyWithNewSize:(CGSize)newSize;
+@end
+
+@interface UIImage(InternalMethod)
+
+- (UIImage*)imageRotatedByDegrees:(CGFloat)degrees;
+
+@end
+

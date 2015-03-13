@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F984C091AA16C62005DF6BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F984C081AA16C62005DF6BE /* main.m */; };
+		2F984C0C1AA16C62005DF6BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F984C0B1AA16C62005DF6BE /* AppDelegate.m */; };
+		2F984C0F1AA16C62005DF6BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F984C0E1AA16C62005DF6BE /* ViewController.m */; };
+		2F984C141AA16C62005DF6BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F984C131AA16C62005DF6BE /* Images.xcassets */; };
+		2F984C171AA16C62005DF6BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F984C151AA16C62005DF6BE /* LaunchScreen.xib */; };
+		2F984C231AA16C62005DF6BE /* SinriAdDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F984C221AA16C62005DF6BE /* SinriAdDemoTests.m */; };
+		2F984C2F1AA16EC3005DF6BE /* SinriAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F984C2E1AA16EC3005DF6BE /* SinriAdView.m */; };
+		2F984C311AA16EE9005DF6BE /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C301AA16EE9005DF6BE /* GoogleMobileAds.framework */; };
+		2F984C331AA16FB4005DF6BE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C321AA16FB4005DF6BE /* AdSupport.framework */; };
+		2F984C351AA16FBD005DF6BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C341AA16FBD005DF6BE /* AudioToolbox.framework */; };
+		2F984C371AA16FC5005DF6BE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C361AA16FC5005DF6BE /* AVFoundation.framework */; };
+		2F984C391AA16FCD005DF6BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C381AA16FCD005DF6BE /* CoreGraphics.framework */; };
+		2F984C3B1AA16FD5005DF6BE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C3A1AA16FD5005DF6BE /* MessageUI.framework */; };
+		2F984C3D1AA16FDC005DF6BE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C3C1AA16FDC005DF6BE /* StoreKit.framework */; };
+		2F984C3F1AA16FE2005DF6BE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F984C3E1AA16FE2005DF6BE /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F984C1D1AA16C62005DF6BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F984BFB1AA16C62005DF6BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F984C021AA16C62005DF6BE;
+			remoteInfo = SinriAdDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F984C031AA16C62005DF6BE /* SinriAdDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinriAdDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F984C071AA16C62005DF6BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F984C081AA16C62005DF6BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F984C0A1AA16C62005DF6BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2F984C0B1AA16C62005DF6BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2F984C0D1AA16C62005DF6BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2F984C0E1AA16C62005DF6BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2F984C131AA16C62005DF6BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2F984C161AA16C62005DF6BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2F984C1C1AA16C62005DF6BE /* SinriAdDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinriAdDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F984C211AA16C62005DF6BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F984C221AA16C62005DF6BE /* SinriAdDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinriAdDemoTests.m; sourceTree = "<group>"; };
+		2F984C2C1AA16DA1005DF6BE /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2F984C2D1AA16EC3005DF6BE /* SinriAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinriAdView.h; sourceTree = "<group>"; };
+		2F984C2E1AA16EC3005DF6BE /* SinriAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinriAdView.m; sourceTree = "<group>"; };
+		2F984C301AA16EE9005DF6BE /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		2F984C321AA16FB4005DF6BE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		2F984C341AA16FBD005DF6BE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2F984C361AA16FC5005DF6BE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2F984C381AA16FCD005DF6BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2F984C3A1AA16FD5005DF6BE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2F984C3C1AA16FDC005DF6BE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2F984C3E1AA16FE2005DF6BE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F984C001AA16C62005DF6BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F984C3F1AA16FE2005DF6BE /* SystemConfiguration.framework in Frameworks */,
+				2F984C3D1AA16FDC005DF6BE /* StoreKit.framework in Frameworks */,
+				2F984C3B1AA16FD5005DF6BE /* MessageUI.framework in Frameworks */,
+				2F984C391AA16FCD005DF6BE /* CoreGraphics.framework in Frameworks */,
+				2F984C371AA16FC5005DF6BE /* AVFoundation.framework in Frameworks */,
+				2F984C351AA16FBD005DF6BE /* AudioToolbox.framework in Frameworks */,
+				2F984C331AA16FB4005DF6BE /* AdSupport.framework in Frameworks */,
+				2F984C311AA16EE9005DF6BE /* GoogleMobileAds.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F984C191AA16C62005DF6BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F984BFA1AA16C61005DF6BE = {
+			isa = PBXGroup;
+			children = (
+				2F984C401AA17010005DF6BE /* AdMob */,
+				2F984C2D1AA16EC3005DF6BE /* SinriAdView.h */,
+				2F984C2E1AA16EC3005DF6BE /* SinriAdView.m */,
+				2F984C051AA16C62005DF6BE /* SinriAdDemo */,
+				2F984C1F1AA16C62005DF6BE /* SinriAdDemoTests */,
+				2F984C041AA16C62005DF6BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F984C041AA16C62005DF6BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F984C031AA16C62005DF6BE /* SinriAdDemo.app */,
+				2F984C1C1AA16C62005DF6BE /* SinriAdDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F984C051AA16C62005DF6BE /* SinriAdDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2F984C0A1AA16C62005DF6BE /* AppDelegate.h */,
+				2F984C0B1AA16C62005DF6BE /* AppDelegate.m */,
+				2F984C0D1AA16C62005DF6BE /* ViewController.h */,
+				2F984C0E1AA16C62005DF6BE /* ViewController.m */,
+				2F984C131AA16C62005DF6BE /* Images.xcassets */,
+				2F984C151AA16C62005DF6BE /* LaunchScreen.xib */,
+				2F984C061AA16C62005DF6BE /* Supporting Files */,
+			);
+			path = SinriAdDemo;
+			sourceTree = "<group>";
+		};
+		2F984C061AA16C62005DF6BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F984C2C1AA16DA1005DF6BE /* PrefixHeader.pch */,
+				2F984C071AA16C62005DF6BE /* Info.plist */,
+				2F984C081AA16C62005DF6BE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F984C1F1AA16C62005DF6BE /* SinriAdDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F984C221AA16C62005DF6BE /* SinriAdDemoTests.m */,
+				2F984C201AA16C62005DF6BE /* Supporting Files */,
+			);
+			path = SinriAdDemoTests;
+			sourceTree = "<group>";
+		};
+		2F984C201AA16C62005DF6BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F984C211AA16C62005DF6BE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F984C401AA17010005DF6BE /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				2F984C3E1AA16FE2005DF6BE /* SystemConfiguration.framework */,
+				2F984C3C1AA16FDC005DF6BE /* StoreKit.framework */,
+				2F984C3A1AA16FD5005DF6BE /* MessageUI.framework */,
+				2F984C381AA16FCD005DF6BE /* CoreGraphics.framework */,
+				2F984C361AA16FC5005DF6BE /* AVFoundation.framework */,
+				2F984C341AA16FBD005DF6BE /* AudioToolbox.framework */,
+				2F984C321AA16FB4005DF6BE /* AdSupport.framework */,
+				2F984C301AA16EE9005DF6BE /* GoogleMobileAds.framework */,
+			);
+			name = AdMob;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F984C021AA16C62005DF6BE /* SinriAdDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F984C261AA16C62005DF6BE /* Build configuration list for PBXNativeTarget "SinriAdDemo" */;
+			buildPhases = (
+				2F984BFF1AA16C62005DF6BE /* Sources */,
+				2F984C001AA16C62005DF6BE /* Frameworks */,
+				2F984C011AA16C62005DF6BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SinriAdDemo;
+			productName = SinriAdDemo;
+			productReference = 2F984C031AA16C62005DF6BE /* SinriAdDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F984C1B1AA16C62005DF6BE /* SinriAdDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F984C291AA16C62005DF6BE /* Build configuration list for PBXNativeTarget "SinriAdDemoTests" */;
+			buildPhases = (
+				2F984C181AA16C62005DF6BE /* Sources */,
+				2F984C191AA16C62005DF6BE /* Frameworks */,
+				2F984C1A1AA16C62005DF6BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F984C1E1AA16C62005DF6BE /* PBXTargetDependency */,
+			);
+			name = SinriAdDemoTests;
+			productName = SinriAdDemoTests;
+			productReference = 2F984C1C1AA16C62005DF6BE /* SinriAdDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F984BFB1AA16C62005DF6BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = com.sinri;
+				TargetAttributes = {
+					2F984C021AA16C62005DF6BE = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					2F984C1B1AA16C62005DF6BE = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 2F984C021AA16C62005DF6BE;
+					};
+				};
+			};
+			buildConfigurationList = 2F984BFE1AA16C62005DF6BE /* Build configuration list for PBXProject "SinriAdDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F984BFA1AA16C61005DF6BE;
+			productRefGroup = 2F984C041AA16C62005DF6BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F984C021AA16C62005DF6BE /* SinriAdDemo */,
+				2F984C1B1AA16C62005DF6BE /* SinriAdDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F984C011AA16C62005DF6BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F984C171AA16C62005DF6BE /* LaunchScreen.xib in Resources */,
+				2F984C141AA16C62005DF6BE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F984C1A1AA16C62005DF6BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F984BFF1AA16C62005DF6BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F984C0F1AA16C62005DF6BE /* ViewController.m in Sources */,
+				2F984C2F1AA16EC3005DF6BE /* SinriAdView.m in Sources */,
+				2F984C0C1AA16C62005DF6BE /* AppDelegate.m in Sources */,
+				2F984C091AA16C62005DF6BE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F984C181AA16C62005DF6BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F984C231AA16C62005DF6BE /* SinriAdDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F984C1E1AA16C62005DF6BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F984C021AA16C62005DF6BE /* SinriAdDemo */;
+			targetProxy = 2F984C1D1AA16C62005DF6BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F984C151AA16C62005DF6BE /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F984C161AA16C62005DF6BE /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F984C241AA16C62005DF6BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F984C251AA16C62005DF6BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F984C271AA16C62005DF6BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SinriAdDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = SinriAdDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2F984C281AA16C62005DF6BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SinriAdDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = SinriAdDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2F984C2A1AA16C62005DF6BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SinriAdDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinriAdDemo.app/SinriAdDemo";
+			};
+			name = Debug;
+		};
+		2F984C2B1AA16C62005DF6BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SinriAdDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinriAdDemo.app/SinriAdDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F984BFE1AA16C62005DF6BE /* Build configuration list for PBXProject "SinriAdDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F984C241AA16C62005DF6BE /* Debug */,
+				2F984C251AA16C62005DF6BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F984C261AA16C62005DF6BE /* Build configuration list for PBXNativeTarget "SinriAdDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F984C271AA16C62005DF6BE /* Debug */,
+				2F984C281AA16C62005DF6BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F984C291AA16C62005DF6BE /* Build configuration list for PBXNativeTarget "SinriAdDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F984C2A1AA16C62005DF6BE /* Debug */,
+				2F984C2B1AA16C62005DF6BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F984BFB1AA16C62005DF6BE /* Project object */;
+}
