@@ -5,29 +5,52 @@
 //  Created by 倪 李俊 on 14/12/8.
 //  Copyright (c) 2014年 com.sinri. All rights reserved.
 //
+//  Updated 2015/02/28
+//
 
 #import "SinriAdView.h"
+
+static const NSString * SinriAd_IN_SDK_AD_ID=@"SDK-Original";
 
 @implementation SinriAdView
 /**
  iAd
  -------
  iAd supports different banner sizes for portrait and landscape apps. The exact size of advertisements depends on the device the banner is being shown on. On an iPhone, a portrait advertisement is 320 x 50 points and 480 x 32 points for a landscape advertisement. On an iPad, a portrait advertisement is 768 x 66 points and 1024 x 66 points for a landscape advertisement. In the future, additional sizes may be exposed by iAd.
+ 
+ AdMob
+ -------
+ If use Smart Banner,height of ad on iPhone 50 for portrait and 32 for landscape, on iPad 90.
  */
++(CGFloat)recommendedBannerHeight{
+    if([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone){
+        if([[UIApplication sharedApplication]statusBarOrientation]==UIInterfaceOrientationPortrait ||
+           [[UIApplication sharedApplication]statusBarOrientation]==UIInterfaceOrientationPortraitUpsideDown){
+            return 50;
+        }else{
+            return 32;
+        }
+    }else{
+        if([[UIApplication sharedApplication]statusBarOrientation]==UIInterfaceOrientationPortrait ||
+           [[UIApplication sharedApplication]statusBarOrientation]==UIInterfaceOrientationPortraitUpsideDown){
+            return 66;
+        }else{
+            return 66;
+        }
+    }
+}
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self=[super initWithFrame:frame];
     if(self){
-        _sinriBannerText=@"All Hail Sinri Edogawa!";
-        _sinriBannerBackgroundColor=[UIColor clearColor];
-        _sinriBannerForegroundColor=[UIColor greenColor];
+        _sinriBannerAdId= [SinriAd_IN_SDK_AD_ID copy];
+        _sinriBannerText=@"~SinriAd Service~";
+        _sinriBannerBackgroundColor=[UIColor lightGrayColor];
+        _sinriBannerForegroundColor=[UIColor blueColor];
         _sinriBannerTargetUrl=@"http://www.everstray.com/";
         
+        [self performSelector:@selector(buildBanner) withObject:nil afterDelay:0.1];
         
-        if(arc4random()%3==1){
-            [self performSelector:@selector(buildGAD) withObject:nil afterDelay:0.1];
-        }else{
-            [self performSelector:@selector(buildIAD) withObject:nil afterDelay:0.1];
-        }
     }
     return self;
 }
@@ -82,6 +105,7 @@
 -(void)buildBanner{
     sinriBanner=[UIButton buttonWithType:(UIButtonTypeRoundedRect)];
     [sinriBanner setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    sinriBanner.layer.masksToBounds=YES;
     
     [sinriBanner setTitle:_sinriBannerText forState:(UIControlStateNormal)];
     [sinriBanner setTitleColor:_sinriBannerForegroundColor forState:(UIControlStateNormal)];
@@ -89,6 +113,24 @@
     
     [sinriBanner addTarget:self action:@selector(onSinriBanner:) forControlEvents:(UIControlEventTouchUpInside)];
     [self addSubview:sinriBanner];
+    
+    UILabel * logoLabel=[[UILabel alloc]initWithFrame:(CGRectMake(sinriBanner.frame.size.width-40, sinriBanner.frame.size.height-15, 40, 15))];
+    [logoLabel setBackgroundColor:([UIColor whiteColor])];
+    [logoLabel setTextColor:([UIColor blackColor])];
+    [logoLabel setText:@"SinriAd"];
+    [logoLabel setFont:([UIFont systemFontOfSize:10])];
+    [logoLabel setAlpha:0.3];
+    [logoLabel setTextAlignment:(NSTextAlignmentCenter)];
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:logoLabel.bounds
+                                                   byRoundingCorners:UIRectCornerTopLeft//UIRectCornerBottomRight
+                                                         cornerRadii:CGSizeMake(20, 20)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = logoLabel.bounds;
+    maskLayer.path = maskPath.CGPath;
+    logoLabel.layer.mask = maskLayer;
+    [logoLabel.layer setMasksToBounds:YES];
+    [sinriBanner addSubview:logoLabel];
     
     [self performSelectorInBackground:@selector(loadSinriAd) withObject:nil];
 }
@@ -205,9 +247,11 @@
             NSString * mediaType=dict[@"media_type"];
             NSString * url=dict[@"url"];
             if(mediaType && [mediaType isEqual:@"text"]){
+                _sinriBannerAdId=dict[@"ad_id"]?:@"";
+                
                 NSDictionary * ui=dict[@"ui"];
                 
-                _sinriBannerText=ui[@"text"];
+                _sinriBannerText=ui[@"text"]?:@"";
                 
                 NSString * textColorHex=ui[@"text_color"]?:@"FFFFFF";
                 NSString * backgroundColorHex=ui[@"background_color"]?:@"000000";
@@ -232,8 +276,6 @@
     //[self performSelectorOnMainThread:@selector(resetUI) withObject:nil waitUntilDone:YES];
     [self performSelectorOnMainThread:@selector(refreshSinriBanner) withObject:nil waitUntilDone:YES];
     
-    
-    
     _Log(@"SinriAD received");
 }
 
@@ -252,6 +294,36 @@
 #pragma mark - target ad event
 
 -(void)onSinriBanner:(id)sender{
+    //report
+    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+    NSString * appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString * appBundleIdentifier = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleIdentifier"];
+    
+    ASIdentifierManager *identifierManager = [ASIdentifierManager sharedManager];
+    NSUUID *advertisingIdentifier = identifierManager.advertisingIdentifier;
+    NSString *idfa = advertisingIdentifier.UUIDString;
+    
+    NSDictionary * request_parameters=@{
+                                        @"dev_type":@"iOS",
+                                        @"app_id":appBundleIdentifier?:@"unknown",
+                                        @"app_ver":appVersionString?:@"unknown",
+                                        @"client_id":idfa?:@"unknown",
+                                        @"ad_size_type":@"banner",
+                                        //TAP REPORT
+                                        @"tap_report":@"YES",
+                                        @"ad_id":_sinriBannerAdId?:@"",
+                                        };
+    
+    NSMutableURLRequest * request=[[NSMutableURLRequest alloc]initWithURL:([NSURL URLWithString:@"http://www.everstray.com/SinriAD/ad.php"]) cachePolicy:(NSURLRequestReloadIgnoringCacheData) timeoutInterval:10];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[[SinriAdView URLQueryWithParams:request_parameters]dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:([NSOperationQueue mainQueue]) completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        _Log(@"= = AD TAP REPORT = =\nresponse: %@\ndata: %@\nerror: %@",response,[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding],connectionError);
+    }];
+    
+    
+    //open
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:_sinriBannerTargetUrl]];
 }
 
@@ -272,7 +344,11 @@
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
     [self resetUI];
-    [self buildGAD];
+    if(_useAdMob){
+        [self buildGAD];
+    }else{
+        [self buildBanner];
+    }
     _Log(@"iOS receive iad failed");
 }
 
@@ -281,20 +357,14 @@
     [self buildBanner];
     _Log(@"iOS receive admob failed");
 }
-/*
- -(void)dealloc{
- if(_sinriBannerTimer){
- [_sinriBannerTimer invalidate];
- _sinriBannerTimer = nil;
- }
- }
- */
+
 @end
 
 @implementation UIColor (SinriAdViewHexColor)
 
 + (UIColor *) colorWithHexString: (NSString *) hexString {
     NSString *colorString = [[hexString stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+    colorString = [[colorString stringByReplacingOccurrencesOfString: @"0X" withString: @""] uppercaseString];
     CGFloat alpha, red, blue, green;
     switch ([colorString length]) {
         case 3: // #RGB
@@ -322,7 +392,14 @@
             blue  = [self colorComponentFrom: colorString start: 6 length: 2];
             break;
         default:
-            [NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB", hexString];
+            //[NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB", hexString];
+            NSLog(@"Color value %@ is invalid.  It should be a hex value of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB", hexString);
+            
+            alpha = 1;
+            red   = (arc4random() % 256) / 255.0;
+            green = (arc4random() % 256) / 255.0;
+            blue  = (arc4random() % 256) / 255.0;
+            
             break;
     }
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];

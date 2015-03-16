@@ -105,6 +105,7 @@ static const NSString * SinriAd_IN_SDK_AD_ID=@"SDK-Original";
 -(void)buildBanner{
     sinriBanner=[UIButton buttonWithType:(UIButtonTypeRoundedRect)];
     [sinriBanner setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    sinriBanner.layer.masksToBounds=YES;
     
     [sinriBanner setTitle:_sinriBannerText forState:(UIControlStateNormal)];
     [sinriBanner setTitleColor:_sinriBannerForegroundColor forState:(UIControlStateNormal)];
@@ -112,6 +113,24 @@ static const NSString * SinriAd_IN_SDK_AD_ID=@"SDK-Original";
     
     [sinriBanner addTarget:self action:@selector(onSinriBanner:) forControlEvents:(UIControlEventTouchUpInside)];
     [self addSubview:sinriBanner];
+    
+    UILabel * logoLabel=[[UILabel alloc]initWithFrame:(CGRectMake(sinriBanner.frame.size.width-40, sinriBanner.frame.size.height-15, 40, 15))];
+    [logoLabel setBackgroundColor:([UIColor whiteColor])];
+    [logoLabel setTextColor:([UIColor blackColor])];
+    [logoLabel setText:@"SinriAd"];
+    [logoLabel setFont:([UIFont systemFontOfSize:10])];
+    [logoLabel setAlpha:0.3];
+    [logoLabel setTextAlignment:(NSTextAlignmentCenter)];
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:logoLabel.bounds
+                                                   byRoundingCorners:UIRectCornerTopLeft//UIRectCornerBottomRight
+                                                         cornerRadii:CGSizeMake(20, 20)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = logoLabel.bounds;
+    maskLayer.path = maskPath.CGPath;
+    logoLabel.layer.mask = maskLayer;
+    [logoLabel.layer setMasksToBounds:YES];
+    [sinriBanner addSubview:logoLabel];
     
     [self performSelectorInBackground:@selector(loadSinriAd) withObject:nil];
 }
