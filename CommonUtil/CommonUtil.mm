@@ -116,6 +116,20 @@
 }
 
 //
++(NSString*) Model
+{
+    return [[UIDevice currentDevice]model];
+}
+
++(BOOL)isSimulator{
+    if([[CommonUtil Model]containsString:@"Simulator"]){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+//
 +(UIScreen *)Screen
 {
     return [UIScreen mainScreen];
@@ -460,6 +474,10 @@
     [self.view stopWait];
 }
 
+-(void)waitFor:(void (^)())endHandler{
+    [self.view waitFor:endHandler];
+}
+
 @end
 
 @implementation UIView (waiting)
@@ -640,6 +658,16 @@
         [_waitingAIBoard removeFromSuperview];
     }
     [self setUserInteractionEnabled:YES];
+}
+
+-(void)waitFor:(void (^)())endHandler{
+    [self startWait];
+    [self performSelectorInBackground:@selector(_waiting:) withObject:endHandler];
+}
+
+-(void)_waiting:(void (^)())endHandler{
+    endHandler();
+    [self performSelectorOnMainThread:@selector(stopWait) withObject:nil waitUntilDone:NO];
 }
 
 @end

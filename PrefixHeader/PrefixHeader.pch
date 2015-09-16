@@ -5,6 +5,11 @@
 //  Created by 倪 李俊 on 15/1/6.
 //  Copyright (c) 2015年 com.sinri. All rights reserved.
 //
+//  http://qiita.com/sinri/items/bfc1f27b1a4db5b44586
+//  そのプロジェクトに、PCHファイルを新規して添付します。
+//  ターゲットの設定に、言語のカテゴリを見つけよう。Target -> Build Settings -> Apple LLVM 6.0 - Language。
+//  そこで、Precompile Prefix Header を YES　に変えよう。
+//  またその下の Prefix Header を $(SRCROOT)/FILENAME.pchのようにしましょう。
 
 #ifndef tenmetsu_PrefixHeader_pch
 #define tenmetsu_PrefixHeader_pch
@@ -13,9 +18,18 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #ifdef DEBUG
+
 #define _Log(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define _LogObj(o)		if (o) _Log(@"Object Log: %s (%u), %@ (%@)", __FUNCTION__, __LINE__, NSStringFromClass([o class]), o) else _Log(@"Log Obj Nil")
+#define _LogLine()		_Log(@"Line Log: %s (%u)", __FUNCTION__, __LINE__)
+
 #else
+
 #define _Log(...)
+#define _LogObj(o)
+#define _LogLine()
+
+
 #endif
 
 // ALog always displays output regardless of the DEBUG alarm
@@ -42,5 +56,9 @@
 #define TABBAR_H    48
 #define NAVBAR_H    44
 #define TOOLBAR_H   44
+
+#ifdef __OBJC__
+//cファイルの前にFoundation/Foundation.hなどを導入したら、コンパイルがダメになる。そのため__OBJC__を確保後importを。
+#endif
 
 #endif

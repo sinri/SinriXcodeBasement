@@ -42,6 +42,8 @@ typedef enum : NSUInteger {
 
 +(UIDevice *)Device;
 +(float) SystemVersion;
++(NSString*) Model;
++(BOOL)isSimulator;
 +(UIScreen *)Screen;
 +(CGFloat) ScreenScale;
 +(CGRect) AppFrame;
@@ -156,6 +158,11 @@ typedef enum : NSUInteger {
  */
 -(void)stopWait;
 
+/**
+ 执行标准的startWait并在结束时调用endHandler。
+ */
+-(void)waitFor:(void (^)(void))endHandler;
+
 @end
 
 @class UIViewController;
@@ -187,6 +194,11 @@ typedef enum : NSUInteger {
  结束等待，抹杀等待指示画面。
  */
 -(void)stopWait;
+
+/**
+ 执行标准的startWait并在结束时调用endHandler。
+ */
+-(void)waitFor:(void (^)(void))endHandler;
 
 @end
 
